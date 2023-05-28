@@ -4,7 +4,7 @@ int	main(void)
 {
 	Database	database;
 
-	database.loadDataFile("./database/population.csv");
+	database.loadDataFile("./database/input.csv");
 
 	vec_data_	vec_data = database.getDatabase();
 	Sort		*sort;
@@ -27,8 +27,23 @@ int	main(void)
 			case 'e':
 				sort = new Selection(vec_data);
 				break ;
+			case 'm':
+				sort = new Merge(vec_data);
+				break ;
+			case 'q':
+				sort = new Quick(vec_data);
+				break ;
+			case 'h':
+				sort = new Heap(vec_data);
+				break ;
 			case 'c':
-				sort = new Count(vec_data);
+				sort = new Comb(vec_data);
+				break ;
+			case 'g':
+				sort = new Gnome(vec_data);
+				break ;
+			case 'a':
+				sort = new Shaker(vec_data);
 				break ;
 			default:
 				continue ;

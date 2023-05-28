@@ -8,40 +8,43 @@
 class Data
 {
 	public:
-		str_	place;
-		int		population;
-		int		population_man;
-		int		population_woman;
-		double	gender_ratio;
+		str_	name;
+		double	score;
+		str_	name_jpn;
+		str_	type;
+		int		favourites;
+		int		completed;
 
 		Data() {};
 		~Data() {};
 
 		Data	operator=(const Data& rhs)
 		{
-			this->place = rhs.place;
-			this->population = rhs.population;
-			this->population_man = rhs.population_man;
-			this->population_woman = rhs.population_woman;
-			this->gender_ratio = rhs.gender_ratio;
+			this->name = rhs.name;
+			this->score = rhs.score;
+			this->name_jpn = rhs.name_jpn;
+			this->type = rhs.type;
+			this->favourites = rhs.favourites;
+			this->completed = rhs.completed;
+
 			return (*this);
 		};
 
-		bool	operator>(const Data& rhs) const {return (this->gender_ratio > rhs.gender_ratio);};
-		bool	operator<(const Data& rhs) const {return (this->gender_ratio < rhs.gender_ratio);};
-		bool	operator>=(const Data& rhs) const {return (this->gender_ratio >= rhs.gender_ratio);};
-		bool	operator<=(const Data& rhs) const {return (this->gender_ratio <= rhs.gender_ratio);};
-		bool	operator==(const Data& rhs) const {return (this->gender_ratio == rhs.gender_ratio);};
-		bool	operator!=(const Data& rhs) const {return (this->gender_ratio != rhs.gender_ratio);};
+		bool	operator>(const Data& rhs) const {return (this->score > rhs.score);};
+		bool	operator<(const Data& rhs) const {return (this->score < rhs.score);};
+		bool	operator>=(const Data& rhs) const {return (this->score >= rhs.score);};
+		bool	operator<=(const Data& rhs) const {return (this->score <= rhs.score);};
+		bool	operator==(const Data& rhs) const {return (this->score == rhs.score);};
+		bool	operator!=(const Data& rhs) const {return (this->score != rhs.score);};
 };
 
 std::ostream&	operator<<(std::ostream& os, const Data &data)
 {
-	os << std::right << std::setw(10) << data.population;
-	os << std::right << std::setw(10) << data.population_man;
-	os << std::right << std::setw(10) << data.population_woman;
-	os << std::right << std::setw(10) << data.gender_ratio;
-	os << "  " << data.place;
+	os << std::left << std::setw(80) << data.name;
+	os << std::right << std::setw(10) << data.score;
+	os << std::right << std::setw(10) << data.favourites;
+	os << std::right << std::setw(10) << data.completed;
+	os << std::left << "  " << std::setw(10) << data.type;
 	return (os);
 }
 

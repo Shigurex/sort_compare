@@ -11,7 +11,11 @@
 # include	"Shell.hpp"
 # include	"Insertion.hpp"
 # include	"Selection.hpp"
-# include	"Count.hpp"
+# include	"Merge.hpp"
 # include	"Quick.hpp"
+# include	"Heap.hpp"
+# include	"Comb.hpp"
+# include	"Gnome.hpp"
+# include	"Shaker.hpp"
 
 #endif

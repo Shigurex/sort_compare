@@ -14,17 +14,22 @@ class Quick : public Sort
 		{
 			int		i, j;
 			Data	pivot;
+
 			if (left >= right)
-				return ;
+				return;
 			i = left;
 			j = right;
 			this->copy(&this->_data[(i + j) / 2], &pivot);
-
 			do {
-				while (this->compare(this->_data[i], pivot)== -1) i++;
-				while (this->compare(this->_data[j], pivot)==  1) j--;
-				if (i <= j)
-					this->swap(&this->_data[i], &this->_data[j]); i++; j--;
+				while (this->compare(this->_data[i], pivot)== -1)
+					i++;
+				while (this->compare(this->_data[j], pivot)==  1)
+					j--;
+				if (i <= j) {
+					this->swap(&this->_data[i], &this->_data[j]);
+					i++;
+					j--;
+				}
 			} while (i <= j);
 			quickSort(left, j);
 			quickSort(i, right);

@@ -52,11 +52,17 @@ class Database
 				split_line = split(line, ",");
 				Data	data;
 
-				data.place = split_line[1];
-				data.population = std::stoi(split_line[2]);
-				data.population_man = std::stoi(split_line[3]);
-				data.population_woman = std::stoi(split_line[4]);
-				data.gender_ratio = (double)data.population_woman / data.population_man;
+				std::cout << split_line[0] << std::endl;
+
+				if (line.find("\"") != std::string::npos || split_line.size() != 6)
+					continue ;
+
+				data.name = split_line[0];
+				data.score = std::stod(split_line[1]);
+				data.name_jpn = split_line[2];
+				data.type = split_line[3];
+				data.favourites = std::stoi(split_line[4]);
+				data.completed = std::stoi(split_line[5]);
 
 				this->_database.push_back(data);
 			}
